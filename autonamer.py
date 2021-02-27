@@ -16,8 +16,10 @@ for i in range (1,len(names)):
         if 'Name of Member of Parliament' in paragraph.text:
             mp_name = names [i]
             paragraph.text = paragraph.text.replace('Name of Member of Parliament', mp_name)
+            original_document.save(mp_name + ".docx")
         combined_document.add_paragraph(paragraph.text)
         para = combined_document.add_paragraph ()
     combined_document.add_page_break()
     combined_document.save('combined_document.docx')
+    
 
